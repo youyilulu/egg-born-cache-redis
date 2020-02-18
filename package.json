@@ -1,0 +1,30 @@
+{
+  "name": "egg-born-cache-redis",
+  "version": "1.0.0",
+  "description": "redis cache",
+  "eggPlugin": {
+    "name": "cache_redis",
+    "dependencies": [
+      "cache"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cache",
+    "redis"
+  ],
+  "author": "youyilulu",
+  "license": "MIT",
+  "dependencies": {
+    "redis": "~2.8.0",
+    "is-type-of": "^1.2.1",
+    "egg-born-core": "../egg-born-core",
+    "egg-born-cache": "../egg-born-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youyilulu/egg-born-cache-redis.git"
+  }
+}
