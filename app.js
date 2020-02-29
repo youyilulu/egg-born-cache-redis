@@ -12,15 +12,14 @@ const METHOD_SET = Symbol('RedisCacheStrategy#set');
 
 class RedisCacheStrategy extends CacheStrategy {
   constructor(options) {
-    const client = options.client;
-    const clients = options.clients;
-    assert(!client || !clients, '[egg-born] client configuration missing, require either client or clients');
+
+    assert(!options, '[egg-born] redis configuration missing');
 
     assert(
-      client.host && client.port,
-      `[egg-born] 'host: ${client.host}', 'port: ${client.port}' are required on config.redis`
+      options.host && options.port,
+      `[egg-born] 'host: ${options.host}', 'port: ${options.port}' are required on config.redis`
     );
-    const redisClient = redis.createClient(client);
+    const redisClient = redis.createClient(options);
     super(redisClient);
     this[METHOD_GET] = Util.promisify(redisClient.get).bind(redisClient);
     this[METHOD_SET] = Util.promisify(redisClient.set).bind(redisClient);
